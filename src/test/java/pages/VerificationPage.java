@@ -10,7 +10,7 @@ public class VerificationPage {
     SelenideElement verificationErrorNotification = $("[data-test-id=error-notification]");
 
     public void verifyVerificationPageVisibility() {
-        verificationErrorNotification.shouldBe(visible);
+        codeField.shouldBe(visible);
     }
 
     public DashboardPage validVerify(String verificationCode) {

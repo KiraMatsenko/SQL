@@ -9,7 +9,7 @@ import java.sql.SQLException;
 
 public class SQLHelper {
 
-    private static QueryRunner runner = new QueryRunner();
+    private static final QueryRunner runner = new QueryRunner();
 
     private SQLHelper() {
     }
@@ -21,7 +21,7 @@ public class SQLHelper {
     public static DataHelper.VerificationCode geVerificationCode() {
         var codeSQL = "SELECT code FROM auth_codes ORDER BY created DESC LIMIT 1";
         try (var conn = getConn()) {
-            var code = runner.query("conn", "codeSQL", new BeanListHandler<>(DataHelper.AuthCode.class));
+            var code = runner.query(conn, codeSQL, new BeanListHandler<>(DataHelper.AuthCode.class));
             return new DataHelper.VerificationCode(code.get(0).getCode());
         } catch (SQLException exception) {
             exception.printStackTrace();
@@ -34,7 +34,7 @@ public class SQLHelper {
         var connection = getConn();
         runner.execute(connection, "DELETE FROM auth_codes");
         runner.execute(connection, "DELETE FROM card_transactions");
-        runner.execute(connection, "DELETE FROM card");
+        runner.execute(connection, "DELETE FROM cards");
         runner.execute(connection, "DELETE FROM users");
     }
 }
