@@ -4,6 +4,7 @@ import com.codeborne.selenide.SelenideElement;
 import data.DataHelper;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.page;
 
 public class LoginPage {
     SelenideElement loginField = $("[data-test-id=login] input");
@@ -19,6 +20,6 @@ public class LoginPage {
         loginField.setValue(info.getLogin());
         passwordField.setValue(info.getPassword());
         loginButton.click();
-        return new VerificationPage();
+        return page(VerificationPage.class);
     }
 }

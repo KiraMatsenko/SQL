@@ -28,6 +28,7 @@ public class DataHelper {
     public static String generateRandomPassword() {
         return faker.internet().password();
     }
+
     @Value
     public static class AuthInfo {
         String login;

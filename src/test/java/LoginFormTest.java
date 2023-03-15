@@ -1,4 +1,3 @@
-import com.codeborne.selenide.Configuration;
 import data.DataHelper;
 import data.SQLHelper;
 import org.junit.jupiter.api.AfterAll;
@@ -11,7 +10,7 @@ import static data.SQLHelper.cleanDatabase;
 public class LoginFormTest {
 
     @AfterAll
-    static void tearDown(){
+    static void tearDown() {
         cleanDatabase();
     }
 

@@ -5,7 +5,7 @@ import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.$;
 
 public class VerificationPage {
-    SelenideElement codeField = $("[data-test-id=code]");
+    SelenideElement codeField = $("[data-test-id=code] input");
     SelenideElement verifyButton = $("[data-test-id=action-verify]");
     SelenideElement verificationErrorNotification = $("[data-test-id=error-notification]");
 
